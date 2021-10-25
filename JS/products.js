@@ -3,7 +3,7 @@ let url_id = window.location.search;
 
 // je supprime les caractere (?=id)  avec la methode slice
 let id = url_id.slice(4);
-console.log(id);
+
 
 fetch(`http://localhost:3000/api/teddies/${id}`)
 .then(response => response.json())
@@ -49,12 +49,58 @@ let products = document.getElementById('container_products');
     `;
     // boucle for pour parcourir ma liste de couleur pour pouvoir l'afficher dans les options 
     for (let index = 0; index < items.colors.length; index++) {
-        document.getElementById('optionProducts').innerHTML += `<option value="${items.colors[index]}">${items.colors[index]}</option>`;
-        
+        document.getElementById('optionProducts').innerHTML += `<option value="${items.colors[index]}">${items.colors[index]}</option>`; 
     }
-   
+
+    // ecouter le click sur le boutton <<<<ajouter au panier>>>>
+    let btn_submit = document.querySelector('#btn-envoyer');
+
+    // au click envoyer les valeurs dans le LocalStorage 
+    btn_submit.addEventListener("click", (event)=>{
+        let quantity = document.getElementById("optionQuantity").value;
+        let colors = document.getElementById("optionProducts").value;
+      
+        let products = {
+            id : items._id,
+            option : colors,
+            quantity : quantity,
+        }
+        console.log(products);
+        
+        // utilisation d'une ALERT personnalisé pour un design plus agréable
+            swal({
+                title: "Let's go au panier ?",
+                text: "Cliquez sur OK pour aller au panier ",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  window.location.href="cart.html"
+                }
+              });
+        
+        //-------------------------------------------------- LOCAL STORAGE -------------------------------------------------------
+
+        let produitEnregistreLocalStorage = JSON.parse(localStorage.getItem("products"));
+
+        if (produitEnregistreLocalStorage) {
+            produitEnregistreLocalStorage.push(products);
+            localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
+        } else {
+            produitEnregistreLocalStorage = [];
+            produitEnregistreLocalStorage.push(products);
+            localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
+        }
+        
+       
+        let quant = produitEnregistreLocalStorage.quantity;
+        console.log(quant);
+
+
+
+
+    })
 })
 
-// ecouter le click sur le boutton <<<<ajouter au panier>>>>
-
-// au click envoyer les valeur dans le localStorage 
