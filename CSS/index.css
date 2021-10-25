@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+}
+header{
+    background-color: #F3E9F1;
+    height: 150px;
+}
+#logo_orinoco{
+    margin-left: 5%;
+}
+nav{
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 12%, rgba(0,255,218,1) 77%);
+    height: 40px;
+}
+ul{
+    margin-top: 0px;
+    list-style: none;
+    display: flex;
+}
+li{
+    margin-left: 30px;
+    margin: 10px;
+    transition: transform .2s;
+}
+.link{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    
+
+
+}
+li:hover{
+    transform: scale(1.15);
+}
+#container_products{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#products{
+    width: 25%;
+    min-width: 300px;
+    border: solid black;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+    
+}
+#text_panier{
+    margin-left: 4px;
+}
+
+
+
+
+
+
+footer{
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(0,255,218,1)  12%,rgba(9,9,121,1) 77%);
+    margin-top: 50px;
+}
+#ul_footer{
+    margin-bottom: 0;
+}
+
+
+
+
+/*###############################################Page produits#########################################*/
+
+#products_page{
+    width: 80%;
+    min-width: 300px;
+    border: solid black;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+/*###############################################Page Panier #########################################*/
+
+form{
+    display: flex;
+    flex-direction: column;
+    border: solid red 4px;
+    width: 100%;
+    min-width: 350px;
+}
+
+
+#container_form_summary{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
