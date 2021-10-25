@@ -14,7 +14,7 @@ function displayElement(item) {
                 <img src="${item.imageUrl}" id="img_products">
                 <p><strong>${item.name}</strong></p>
                 <p>${item.description}</p>
-                <p>${item.price / 100} €</p>
+                <p id="price"> <strong>${item.price / 100} € </strong></p>
             </div>
     </a>
     `;

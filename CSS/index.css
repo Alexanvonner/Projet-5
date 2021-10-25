@@ -30,12 +30,10 @@ li{
     font-weight: bold;
     color: white;
     text-decoration: none;
-    
-
-
 }
 li:hover{
     transform: scale(1.15);
+    color: white;
 }
 #container_products{
     display: flex;
@@ -57,6 +55,10 @@ li:hover{
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: transform .2s;
+}
+#products:hover{
+    transform:scale(1.05);
 }
 #href_products{
     text-decoration: none;
@@ -73,12 +75,15 @@ li:hover{
 footer{
     background: rgb(9,9,121);
     background: linear-gradient(90deg, rgba(0,255,218,1)  12%,rgba(9,9,121,1) 77%);
-    margin-top: 50px;
 }
 #ul_footer{
     margin-bottom: 0;
 }
-
+#price{
+    font-size: 2em;
+    background: rgb(70,7,99);
+    background: linear-gradient(90deg, rgba(70,7,99,1) 29%, rgba(255,0,31,1) 77%);
+}
 
 
 

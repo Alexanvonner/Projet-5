@@ -18,7 +18,7 @@ let products = document.getElementById('container_products');
 
 // j'injecte mon code html contenant les donnée de l'api
     products.innerHTML = `
-    <div id="products_page">
+    <div id="products_page" class="col-lg-6">
         <img src="${items.imageUrl}"  alt="image d'une peluche" id="img-products">
         <p id="name_products"><strong>${items.name}</strong></p>
         <p>${items.description}</p>
@@ -42,9 +42,9 @@ let products = document.getElementById('container_products');
                 </form>
                 <button id="btn-envoyer" type="submit" name="btn-envoyer">Commander l'article</button>
     </div>
-    <div id="logo_livraison">
-            <img src="img/colissimo.png">
-            <img src="img/chronopost-removebg-preview.png">
+    <div class="col-lg-4" id="logo_livraison">
+            <img src="img/colissimo.png" alt="logo colissimo" class="logo_livraison">
+            <img src="img/chronopost-removebg-preview.png" alt="logo chronopost" class="logo_livraison">
         </div>
     `;
     // boucle for pour parcourir ma liste de couleur pour pouvoir l'afficher dans les options 

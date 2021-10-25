@@ -35,6 +35,7 @@ li{
 }
 li:hover{
     transform: scale(1.15);
+    color: red;
 }
 #container_products{
     display: flex;
@@ -58,7 +59,6 @@ li:hover{
 footer{
     background: rgb(9,9,121);
     background: linear-gradient(90deg, rgba(0,255,218,1)  12%,rgba(9,9,121,1) 77%);
-    margin-top: 50px;
 }
 #ul_footer{
     margin-bottom: 0;
@@ -112,10 +112,21 @@ select{
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     font-size: 1em;
+    color: black;
 
 }
 
 #name_products{
     font-size: 2em;
     color: green;
+}
+.logo_livraison{
+    width: 100px;
+}
+#logo_livraison{
+    background: rgb(231, 245, 243);
+    height: 70px;
+    width: 235px;
+    border-radius: 0px 0px 10px 10px;
+    margin-left: 100px;
 }
