@@ -1,7 +1,6 @@
 body{
     margin: 0;
     font-family: 'Raleway', sans-serif;
-
 }
 header{
     background-color: #F3E9F1;
@@ -44,23 +43,9 @@ li:hover{
     background-size: cover; 
     padding-bottom: 100px;
 }
-#products{
-    width: 25%;
-    min-width: 300px;
-    border-radius: 10px;
-    margin-left: 50px;
-    margin-top: 30px;
-    text-align: center;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
+
 #href_products{
     text-decoration: none;
-    color: white;
 }
 #text_panier{
     margin-left: 4px;
@@ -80,42 +65,57 @@ footer{
 }
 
 
-
-
-/*###############################################Page produits#########################################*/
 #products_page{
-    width: 80%;
+    width: 50%;
     min-width: 300px;
     border: solid black;
     border-radius: 10px;
     margin-left: 50px;
     margin-top: 30px;
+    color: white;
+    text-align: center;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 #img-products{
 width: 100%;
+border-radius: 10px;
+}
+
+#btn-envoyer{
+    background-color:#2BB04A;
+    width: 180px;
+    height: 45px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border:transparent;
+    font-size: 1em;
+}
+#btn-envoyer:hover{
+    background-color:#057BA6;
+}
+#btn-envoyer:active{
+    transform: scale(1.05);
 }
 
 
 
+select{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
 
-
-
-
-
-
-/*###############################################Page Panier #########################################*/
-
-form{
-    display: flex;
-    flex-direction: column;
-    border: solid red 4px;
-    width: 100%;
-    min-width: 350px;
 }
 
-
-#container_form_summary{
-    display: flex;
-    flex-wrap: wrap;
-    
+#name_products{
+    font-size: 2em;
+    color: green;
 }

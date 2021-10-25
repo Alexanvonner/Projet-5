@@ -1,14 +1,24 @@
-// je réalise un FETCH (GET) pour recuperer les info au niveau de L'API
 fetch("http://localhost:3000/api/teddies")
 .then(response => response.json())
-.then((items)=>{
-for (let index = 0; index < items.length; index++) {
+.then((items) => {
+for (let i = 0; i < items.length; i++) {
     displayElement(items[i]);
 }
 })
 
-function displayElement(items){
-    let container = document.querySelector("#container_products");
-    console.log(container);
+function displayElement(item) {
+    let txt = document.getElementById("container_products");
+    txt.innerHTML += `
+    <div id="products">
+    <a href="products.html?id=${item._id}" id="href_products">
+                <img src="${item.imageUrl}" id="img_products">
+                <p><strong>${item.name}</strong></p>
+                <p>${item.description}</p>
+                <p>${item.price / 100} €</p>
+            </div>
+    </a>
+    `;
 }
-displayElement();
+
+
+
