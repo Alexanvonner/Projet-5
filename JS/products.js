@@ -64,6 +64,8 @@ let products = document.getElementById('container_products');
             id : items._id,
             option : colors,
             quantity : quantity,
+            nom : items.name,
+            prix : items.price / 100,
         }
         console.log(products);
         
@@ -94,12 +96,6 @@ let products = document.getElementById('container_products');
             localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
         }
         
-       
-        let quant = produitEnregistreLocalStorage.quantity;
-        console.log(quant);
-
-
-
 
     })
 })
