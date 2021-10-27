@@ -1,9 +1,6 @@
 let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
 
-
 let tableauInject = document.getElementById("tableauInject");
-console.log(tableauInject);
-
 
 
 if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
@@ -33,13 +30,11 @@ if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
 
 // 1) je parcour le localStorage avec une boucle for pour recuperer le PRIX et la QUANTITE 
 // 2) je creer une variable total qui est egal a PRIX * QUANTITE  et je l'affiche dans mon html
-if (!produitDansLocalStorage == null) {
+if (!produitDansLocalStorage == 0) {
     for (let index = 0; index < produitDansLocalStorage.length; index++) {
-   
-   let total = produitDansLocalStorage[index].prix * produitDansLocalStorage[index].quantity;
+    let total = [];
+    total = produitDansLocalStorage[index].prix * produitDansLocalStorage[index].quantity;
 
-
-   
     montantTotal.innerHTML = `${total} €`;    
 }
 }
@@ -102,7 +97,13 @@ function SupprimeProduit(button) {
    let deletePanier = document.querySelector('#deletePanier');
    deletePanier.addEventListener('click', (event) => {
      localStorage.clear();
-     window.location.href = "cart.html"
+     // alert votre panier à été vidé 
+     swal("Votre panier à été vidé");
+     // fonction pour effectuer un RECHARGEMENT de la pages apres 2 secondes 
+     setTimeout(function () {
+         window.location.reload(true); 
+        //will redirect to your blog page (an ex: blog.html)
+     }, 2000); //will call the function after 2 secs.
    })
 
    // je recupere les valeur du formulaire 
@@ -114,11 +115,11 @@ function SupprimeProduit(button) {
 
 
    let btn_send = document.getElementById('btn-envoyer');
-   
+       
     btn_send.addEventListener('click', (event)=>{   
     event.preventDefault();
     let contact = {
-        name : nom.value,
+        lastName : nom.value,
         firstName: firstName.value,
         email : email.value,
         city : city.value,
@@ -138,7 +139,7 @@ function SupprimeProduit(button) {
     };
     
     function lastname_control (){
-        if (/^[A-Za-z]{3,20}$/.test(contact.name))
+        if (/^[A-Za-z]{3,20}$/.test(contact.lastName))
         {
             return true;
         }else 
@@ -173,24 +174,40 @@ function SupprimeProduit(button) {
             return false;
         }
     }
-    
+    // si toute les function ( regex ) return true alors j'execute ce code 
     if (cityValide () &&  name_control () && lastname_control () && ValidateEmail() && street()) {
         window.localStorage.setItem("formulaire",JSON.stringify(contact))
+        
+        let products = [];
+        produitDansLocalStorage.forEach(element => {
+            products.push(element.id)
+        
+        });
+        
+        // total a envoyer au local storage
+        let sendData = {
+            contact,
+            products
+        }
+        console.log(sendData);
+
+        fetch("http://localhost:3000/api/teddies/order",{
+            method : "POST",
+            body  :JSON.stringify(sendData),
+            headers: {
+              "Content-Type" : "application/json; charset=UTF-8",
+            }
+          })
+          .then(response=> response.json())
+          .then(json => {
+              // l'api me donne en retourne un OrderId  
+              // je le stock donc dans le local storage pour le recuperer sur la page SUMMARY.html
+              localStorage.setItem("orderId",json.orderId)
+              document.location.href='summary.html';
+          });
     } else {
         swal("Erreur", "Veuillez remplir le formulaire correctement!", "error");
-
     }
-
-
-
-
-
-
-
-
-
-
-
    })   
    
    

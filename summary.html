@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/d731ccdcb4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="CSS/cart.css">
+    <link rel="stylesheet" href="CSS/summary.css">
     <title>Orinoco</title>
 </head>
 <body>
@@ -25,36 +25,11 @@
         </ul>
     </nav>
     <main class="container-fluid">
-        <div id="container_form_summary"  >
-            <div id="summary"  class=" col-lg-6">
-                <table class="tab">
-                    <thead>
-                      <tr>
-                        <th id="left">Produit</th>
-                        <th>Quantité</th>
-                        <th>Option</th>
-                        <th colspan="2" id="right">Prix</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tableauInject">
-                        
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td> <strong>Montant total : <span id="montantTotal"></span></strong>  </td>
-                      </tr>
-                      <tr>
-                        <td> <button id="deletePanier">Vider panier</button> </td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                
-            </div>
-            <div id="form"  class="col-lg-6">
-            </div>
-        </div>
+       <div id="container-summary">
+         <p>Votre commande numéro <span id="orderId"></span> à bien été prise en compte.</p>
+         <p>Votre facture vient de vous être envoyer par e-mail.</p>
+         <p>L'équipe Orinoco Vous remercie pour votre achat et espère vous revoir très bientôt</p>
+       </div>
     </main>
     <footer>
         <ul id="ul_footer">
@@ -64,5 +39,5 @@
         </ul>
     </footer>
 </body>
-<script src="JS/cart.js"></script>
+<script src="JS/summary.js"></script>
 </html>

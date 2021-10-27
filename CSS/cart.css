@@ -11,8 +11,7 @@ header{
     margin-left: 5%;
 }
 nav{
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg, rgba(9,9,121,1) 12%, rgba(0,255,218,1) 77%);
+    background: #8C7766;
     height: 40px;
 }
 ul{
@@ -71,8 +70,7 @@ main{
 }
 
 footer{
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg, rgba(0,255,218,1)  12%,rgba(9,9,121,1) 77%);
+    background:#8C7766;
 }
 #ul_footer{
     margin-bottom: 0;
@@ -123,10 +121,9 @@ form{
 .tab{
     border-collapse: collapse;
     min-width: 400px;
-    height: 400px;
     width: auto;
     margin: 20px auto;
-    border: solid 2px red;
+    border: transparent;
     background: rgba( 255, 214, 214, 0.55 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 2.5px );
@@ -134,16 +131,22 @@ form{
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     font-weight:  bold;
+    
 }
 
 thead{
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg, rgba(9,9,121,1) 12%, rgba(0,255,218,1) 77%);
+    background: #8C7766;
     color: whitesmoke;
 }
 
 th , td{
     padding: 20px;
+}
+#left{
+    border-radius: 10px 0px 0px 0px;
+}
+#right{
+    border-radius: 0px 10px 0px 0px;
 }
 
 form{

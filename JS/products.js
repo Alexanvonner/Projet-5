@@ -1,6 +1,5 @@
 // j'utilise l'objet window location search pour recuperer l'url entier
 let url_id = window.location.search;
-
 // je supprime les caractere (?=id)  avec la methode slice
 let id = url_id.slice(4);
 
@@ -8,12 +7,12 @@ let id = url_id.slice(4);
 fetch(`http://localhost:3000/api/teddies/${id}`)
 .then(response => response.json())
 .then((items) => {
-for (let i = 0; i < items.length; i++) {
-   teddies(items[i])
-}
+    for (let i = 0; i < items.length; i++) {
+    teddies(items[i])
+    }
 
-// je cible la zone ou injecter mon code html 
-let products = document.getElementById('container_products');
+    // je cible la zone ou injecter mon code html 
+    let products = document.getElementById('container_products');
 
 
 // j'injecte mon code html contenant les donnée de l'api

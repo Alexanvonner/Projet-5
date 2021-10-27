@@ -11,8 +11,7 @@ header{
     margin-left: 5%;
 }
 nav{
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg, rgba(9,9,121,1) 12%, rgba(0,255,218,1) 77%);
+    background:#8C7766;
     height: 40px;
 }
 ul{
@@ -73,8 +72,7 @@ li:hover{
 }
 
 footer{
-    background: rgb(9,9,121);
-    background: linear-gradient(90deg, rgba(0,255,218,1)  12%,rgba(9,9,121,1) 77%);
+    background:#8C7766;
 }
 #ul_footer{
     margin-bottom: 0;
@@ -113,7 +111,6 @@ width: 100%;
 form{
     display: flex;
     flex-direction: column;
-    border: solid red 4px;
     width: 100%;
     min-width: 350px;
 }

@@ -22,3 +22,7 @@ function displayElement(item) {
 
 
 
+// requete http 
+// local storage 
+// sync async 
+// porter des variables let var const
