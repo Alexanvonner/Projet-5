@@ -95,7 +95,6 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
             localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
         }
         
-
     })
 })
 

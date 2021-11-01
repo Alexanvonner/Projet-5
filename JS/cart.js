@@ -30,10 +30,11 @@ if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
 
 // 1) je parcour le localStorage avec une boucle for pour recuperer le PRIX et la QUANTITE 
 // 2) je creer une variable total qui est egal a PRIX * QUANTITE  et je l'affiche dans mon html
+let total = 0;
 if (!produitDansLocalStorage == 0) {
     for (let index = 0; index < produitDansLocalStorage.length; index++) {
-    let total = [];
-    total = produitDansLocalStorage[index].prix * produitDansLocalStorage[index].quantity;
+    
+    total = total + produitDansLocalStorage[index].prix * produitDansLocalStorage[index].quantity;
 
     montantTotal.innerHTML = `${total} €`;    
 }
@@ -94,17 +95,22 @@ function SupprimeProduit(button) {
    
 
    // suppression total du panier au click
-   let deletePanier = document.querySelector('#deletePanier');
-   deletePanier.addEventListener('click', (event) => {
-     localStorage.clear();
-     // alert votre panier à été vidé 
-     swal("Votre panier à été vidé");
-     // fonction pour effectuer un RECHARGEMENT de la pages apres 2 secondes 
-     setTimeout(function () {
-         window.location.reload(true); 
-        //will redirect to your blog page (an ex: blog.html)
-     }, 2000); //will call the function after 2 secs.
-   })
+   function deleteCart (){
+     if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
+         
+     }else{
+         
+             localStorage.clear();
+             // alert votre panier à été vidé 
+             // fonction pour effectuer un RECHARGEMENT de la pages apres 2 secondes 
+             setTimeout(function () {
+                 window.location.reload(true); 
+                }); 
+              
+     }
+     
+   }
+   
 
    // je recupere les valeur du formulaire 
    let nom = document.getElementById("name");
