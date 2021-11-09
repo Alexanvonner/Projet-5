@@ -66,7 +66,6 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
             nom : items.name,
             prix : items.price / 100,
         }
-        console.log(products);
         
         // utilisation d'une ALERT personnalisé pour un design plus agréable
             swal({
@@ -86,15 +85,24 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
 
         let produitEnregistreLocalStorage = JSON.parse(localStorage.getItem("products"));
 
-        if (produitEnregistreLocalStorage) {
-            produitEnregistreLocalStorage.push(products);
-            localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
-        } else {
+        if (!produitEnregistreLocalStorage) {
             produitEnregistreLocalStorage = [];
-            produitEnregistreLocalStorage.push(products);
-            localStorage.setItem("products", JSON.stringify(produitEnregistreLocalStorage))
+        } 
+        let pdtExist = produitEnregistreLocalStorage.find(x => x.id === products.id && x.option === products.option);
+        console.log(pdtExist)
+        if(pdtExist){
+          let indiceElement = produitEnregistreLocalStorage.indexOf(pdtExist);
+          produitEnregistreLocalStorage[indiceElement].quantity = parseInt(produitEnregistreLocalStorage[indiceElement].quantity) + parseInt(products.quantity);
+         
+          
+        }else{
+          console.log(products);
+          produitEnregistreLocalStorage.push(products);
         }
         
+    
+        // la transformation au format JSON et l'envoyer dans la key "produtcs" du localstorage
+        localStorage.setItem("products",JSON.stringify(produitEnregistreLocalStorage));
     })
 })
 

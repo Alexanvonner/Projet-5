@@ -3,17 +3,21 @@ let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
 let tableauInject = document.getElementById("tableauInject");
 
 
-if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
-    let emptyCart = `
+// fonction du panier vide sert a etre appeler a chaque fois que j'ai besoin de l'afficher
+function panierVide (){
+let emptyCart = `
     <div class="container-panier-vide">
         <p id="emptyTab"> VOTRE PANIER EST VIDE </p>
         <img src="img/teddy.jpg" alt="nounours">
     </div> `;
     tableauInject.innerHTML = emptyCart;
+};
+
+if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
+    panierVide ();
 } else {
     let structurePanier = [];
     for (let index = 0; index < produitDansLocalStorage.length; index++) {
-    console.log(produitDansLocalStorage[index]);
      structurePanier += `
     <tr id="${produitDansLocalStorage[index].id}">
     <td>${produitDansLocalStorage[index].nom}</td>
@@ -33,9 +37,7 @@ if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
 let total = 0;
 if (!produitDansLocalStorage == 0) {
     for (let index = 0; index < produitDansLocalStorage.length; index++) {
-    
     total = total + produitDansLocalStorage[index].prix * produitDansLocalStorage[index].quantity;
-
     montantTotal.innerHTML = `${total} €`;    
 }
 }
@@ -99,20 +101,17 @@ function SupprimeProduit(button) {
      if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
          
      }else{
-         
+
              localStorage.clear();
-             // alert votre panier à été vidé 
-             // fonction pour effectuer un RECHARGEMENT de la pages apres 2 secondes 
-             setTimeout(function () {
-                 window.location.reload(true); 
-                }); 
-              
+             document.getElementById("tableauInject").remove();
+             window.location.reload();
+             
      }
      
    }
    
 
-   // je recupere les valeur du formulaire 
+   // je recupere les valeurs du formulaire 
    let nom = document.getElementById("name");
    let firstName = document.getElementById("firstName");
    let email = document.getElementById("email");

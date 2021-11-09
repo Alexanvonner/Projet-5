@@ -96,8 +96,12 @@ footer{
 width: 100%;
 }
 
-
-
+#montantTotal{
+    
+    font-size: 1.3em;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 
 
