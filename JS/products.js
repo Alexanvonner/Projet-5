@@ -41,10 +41,6 @@ fetch(`http://localhost:3000/api/teddies/${id}`)
                 </form>
                 <button id="btn-envoyer" type="submit" name="btn-envoyer">Commander l'article</button>
     </div>
-    <div class="col-lg-4" id="logo_livraison">
-            <img src="img/colissimo.png" alt="logo colissimo" class="logo_livraison">
-            <img src="img/chronopost-removebg-preview.png" alt="logo chronopost" class="logo_livraison">
-        </div>
     `;
     // boucle for pour parcourir ma liste de couleur pour pouvoir l'afficher dans les options 
     for (let index = 0; index < items.colors.length; index++) {

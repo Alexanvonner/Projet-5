@@ -3,12 +3,11 @@ let produitDansLocalStorage = JSON.parse(localStorage.getItem("products"));
 let tableauInject = document.getElementById("tableauInject");
 
 
-// fonction du panier vide sert a etre appeler a chaque fois que j'ai besoin de l'afficher
+// fonction du panier vide sert à vider le panier
 function panierVide (){
 let emptyCart = `
     <div class="container-panier-vide">
         <p id="emptyTab"> VOTRE PANIER EST VIDE </p>
-        <img src="img/teddy.jpg" alt="nounours">
     </div> `;
     tableauInject.innerHTML = emptyCart;
 };
@@ -101,13 +100,10 @@ function SupprimeProduit(button) {
      if (produitDansLocalStorage == null || produitDansLocalStorage == 0) {
          
      }else{
-
-             localStorage.clear();
-             document.getElementById("tableauInject").remove();
-             window.location.reload();
-             
-     }
-     
+         localStorage.clear();
+         document.getElementById("tableauInject").remove();
+         window.location.reload();        
+     }  
    }
    
 
@@ -120,7 +116,9 @@ function SupprimeProduit(button) {
 
 
    let btn_send = document.getElementById('btn-envoyer');
-       
+    
+   // si mon localStorage n'est pas vide j'écoute le click sur btn submit 
+   if (btn_send) {
     btn_send.addEventListener('click', (event)=>{   
     event.preventDefault();
     let contact = {
@@ -213,6 +211,10 @@ function SupprimeProduit(button) {
     } else {
         swal("Erreur", "Veuillez remplir le formulaire correctement!", "error");
     }
+
+   
+
    })   
-   
-   
+   }
+  
+  
